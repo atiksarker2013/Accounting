@@ -1,0 +1,22 @@
+﻿<Window x:Class="CHART_ACC_REPORT.UI.VoucherReport"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Voucher Report" Height="286" Width="431" ShowInTaskbar="False" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" KeyUp="Window_KeyUp" Closing="Window_Closing" Background="{StaticResource GrayWhite}">
+    <Grid>
+        <Label Content="From Date" Height="27" HorizontalAlignment="Left" Margin="65,62,0,0" Name="label1" VerticalAlignment="Top" Width="66" />
+        <DatePicker Height="26" HorizontalAlignment="Left" Margin="143,63,0,0" Name="dtpFromDate" VerticalAlignment="Top" Width="195" />
+        <Button Content="Preview" Height="22" HorizontalAlignment="Left" Margin="144,212,0,0" Name="btnPreview" VerticalAlignment="Top" Width="85" Click="btnPreview_Click" />
+        <Button Content="Close" Height="22" HorizontalAlignment="Left" Margin="253,211,0,0" Name="btnClose" VerticalAlignment="Top" Width="85" Click="btnClose_Click" />
+        <Label Content="Fiscal Period" Height="23" HorizontalAlignment="Left" Margin="41,17,0,0" Name="label2" VerticalAlignment="Top" Width="75" />
+        <TextBox Foreground="Green" Height="25" HorizontalAlignment="Left" IsEnabled="False" IsReadOnly="True" Margin="121,18,0,0" Name="txtFiscalStartDate" VerticalAlignment="Top" Width="110" />
+        <Label Content="to" Height="27" HorizontalAlignment="Left" Margin="229,17,0,0" Name="label3" VerticalAlignment="Top" Width="25" />
+        <TextBox Foreground="Green" Height="25" HorizontalAlignment="Left" IsEnabled="False" IsReadOnly="True" Margin="255,17,0,0" Name="txtFiscalEndDate" VerticalAlignment="Top" Width="110" />
+        <Label Content="To Date" Height="27" HorizontalAlignment="Left" Margin="78,101,0,0" Name="label4" VerticalAlignment="Top" Width="51" />
+        <DatePicker Height="26" HorizontalAlignment="Left" Margin="143,102,0,0" Name="dtpToDate" VerticalAlignment="Top" Width="195" />
+        <RadioButton Content="Receive" Height="16" HorizontalAlignment="Left" Margin="143,139,0,0" Name="rdReceive" VerticalAlignment="Top" />
+        <RadioButton Content="Journal" Height="16" HorizontalAlignment="Left" Margin="286,139,0,0" Name="rdJournal" VerticalAlignment="Top" />
+        <RadioButton Content="Payment" Height="16" HorizontalAlignment="Left" Margin="143,166,0,0" Name="rdPayment" VerticalAlignment="Top" />
+        <RadioButton Content="Contra" Height="16" HorizontalAlignment="Left" Margin="286,166,0,0" Name="rdContra" VerticalAlignment="Top" />
+        <RadioButton Content="All Transaction" Height="16" HorizontalAlignment="Left" Margin="194,189,0,0" Name="rdAllTransaction" VerticalAlignment="Top" />
+    </Grid>
+</Window>

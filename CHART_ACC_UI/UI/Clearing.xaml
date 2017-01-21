@@ -1,0 +1,40 @@
+﻿<Window x:Class="CHART_ACC_UI.UI.Clearing"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Clearing" Height="488" Width="809" Background="{StaticResource GrayWhite}" KeyUp="Window_KeyUp" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Closing="Window_Closing" ShowInTaskbar="False">
+    <Window.Resources>
+        <Style TargetType="{x:Type DataGridCell}">
+            <Style.Triggers>
+                <Trigger Property="DataGridCell.IsSelected" Value="True">
+                    <Setter Property="Background" Value="Orange" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <DataGrid AutoGenerateColumns="False" RowBackground="#BAAEC7C5" AlternationCount="2" AlternatingRowBackground="#6548A070" Height="306" Margin="12,17,11,0" Name="dgvDeposit" VerticalAlignment="Top" CanUserAddRows="False">            
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="" Width="25" Binding="{Binding Path=Ischeck}"/>                
+                <DataGridTextColumn Header="Account No" Binding="{Binding Path=AccountCode}" Width="105" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Account Name" Binding="{Binding Path=AccountName}" Width="110" IsReadOnly="True"/>
+                <!--<DataGridTextColumn Header="Cust/Emp Name" Binding="{Binding Path=Cust_Name}" Width="115" IsReadOnly="True"/>-->
+                <DataGridTextColumn Header="Bank A/C" Binding="{Binding Path=BankAccountName}" Width="125" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Cheque No" Binding="{Binding Path=BankCheque}" Width="105" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Cheque Date" Binding="{Binding Path=BankChequeDate,StringFormat=dd-MM-yyyy}" Width="90" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Amount" Binding="{Binding Path=DepositPaymentAmount}" Width="85" IsReadOnly="True"/>                
+                <!--<DataGridTextColumn Header="Status" Binding="{Binding Path=Status}" Width="80" IsReadOnly="True"/>-->
+                <DataGridTextColumn Header="Transaction Date" Binding="{Binding Path=DepositePaymentDate,StringFormat=dd-MM-yyyy}" Width="100" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Status" Height="28" HorizontalAlignment="Left" Margin="61,333,0,0" Name="label1" VerticalAlignment="Top" />
+        <RadioButton Content="Clear" Height="16" HorizontalAlignment="Left" Margin="109,339,0,0" Name="rdbClear" VerticalAlignment="Top" Checked="rdbClear_Checked" FontWeight="Bold" />
+        <RadioButton Content="Cancel" Height="16" HorizontalAlignment="Left" Margin="165,340,0,0" Name="rdbCancel" VerticalAlignment="Top" Checked="rdbCancel_Checked" FontWeight="Bold" />
+        <Label Content="Clearing/Cancel Date" Height="28" HorizontalAlignment="Left" Margin="236,339,0,0" Name="label2" VerticalAlignment="Top" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="360,340,0,0" Name="dtpClearingDate" VerticalAlignment="Top" Width="177" />
+        <Button Content="OK" Height="23" HorizontalAlignment="Left" Margin="346,398,0,0" Name="btnOk" VerticalAlignment="Top" Width="75" Click="btnOk_Click" />
+        <Button Content="Reset" Height="23" HorizontalAlignment="Left" Margin="433,398,0,0" Name="btnReset" VerticalAlignment="Top" Width="75" Click="btnReset_Click" />
+        <Button Content="Close" Height="23" HorizontalAlignment="Left" Margin="523,398,0,0" Name="btnCancel" VerticalAlignment="Top" Width="75" Click="btnCancel_Click" />
+        <Label Content="Notes" Height="28" HorizontalAlignment="Left" Margin="543,340,0,0" Name="label3" VerticalAlignment="Top" />
+        <TextBox Height="59" HorizontalAlignment="Left" Margin="581,337,0,0" Name="txtNotes" VerticalAlignment="Top" Width="195" AcceptsReturn="True" TextWrapping="Wrap" Style="{StaticResource GraywithBlueBorderTextBox}" />
+    </Grid>
+</Window>

@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ACCDB" Class="CHART_ACCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="ConnectionString" ConnectionString="Data Source=webserver;Initial Catalog=ACCDB;Persist Security Info=True;User ID=sa;Password=sa" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ACCOUNT_TYPE" Member="ACCOUNT_TYPEs">
+    <Type Name="ACCOUNT_TYPE">
+      <Column Name="ACC_TYPE_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ACC_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.COMPANY_SETUP" Member="COMPANY_SETUPs">
+    <Type Name="COMPANY_SETUP">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="COMPANY_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ADDRESS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PHONE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WEBSITE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="LOGO" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PROP_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FISCAL_YEAR" Member="FISCAL_YEARs">
+    <Type Name="FISCAL_YEAR">
+      <Column Name="F_YEAR_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="F_YEAR_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="F_YEAR_START_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="F_YEAR_END_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="F_YEAR_STATUS" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ACCESS_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ACCESS_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[USER]" Member="USERs">
+    <Type Name="USER">
+      <Column Name="USER_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USER_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_PASSWORD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_GROUP_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="USER_GROUP_USER" Member="USER_GROUP" ThisKey="USER_GROUP_ID" OtherKey="GROUP_ID" Type="USER_GROUP" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.USER_GROUP" Member="USER_GROUPs">
+    <Type Name="USER_GROUP">
+      <Column Name="GROUP_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GROUP_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="USER_GROUP_USER" Member="USERs" ThisKey="GROUP_ID" OtherKey="USER_GROUP_ID" Type="USER" />
+      <Association Name="USER_GROUP_ROLEWISE_MENU" Member="ROLEWISE_MENUs" ThisKey="GROUP_ID" OtherKey="USER_GROUP_ID" Type="ROLEWISE_MENU" />
+      <Association Name="USER_GROUP_MODULE_PERMISSION" Member="MODULE_PERMISSIONs" ThisKey="GROUP_ID" OtherKey="USER_GROUP_ID" Type="MODULE_PERMISSION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DEPRICIATION_SETUP" Member="DEPRICIATION_SETUPs">
+    <Type Name="DEPRICIATION_SETUP">
+      <Column Name="DEP_SET_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ACCOUNT_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="DEP_PERCENTAGE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DEBIT_ACC_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CREDIT_ACC_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ACCESS_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ACCESS_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="CHART_ACCOUNT_DEPRICIATION_SETUP" Member="CHART_ACCOUNT" ThisKey="ACCOUNT_ID" OtherKey="CHART_ACC_ID" Type="CHART_ACCOUNT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DEPRICIATION" Member="DEPRICIATIONs">
+    <Type Name="DEPRICIATION">
+      <Column Name="DEP_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ACCOUNT_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ORIGINAL_COST" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DEP_VALUE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NEW_ORIGINAL_COST" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ACCESS_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ACCESS_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="JOURNAL_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ROLEWISE_MENU" Member="ROLEWISE_MENUs">
+    <Type Name="ROLEWISE_MENU">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MODULE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="USER_GROUP_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="PARENT_MENU_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PARENT_MENU_CONTENT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CHILD_MENU_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CHILD_MENU_CONTENT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="USER_GROUP_ROLEWISE_MENU" Member="USER_GROUP" ThisKey="USER_GROUP_ID" OtherKey="GROUP_ID" Type="USER_GROUP" IsForeignKey="true" />
+      <Association Name="MODULE_PERMISSION_ROLEWISE_MENU" Member="MODULE_PERMISSION" ThisKey="MODULE_ID" OtherKey="ID" Type="MODULE_PERMISSION" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MODULE_PERMISSION" Member="MODULE_PERMISSIONs">
+    <Type Name="MODULE_PERMISSION">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MODULE_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_GROUP_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="MODULE_PERMISSION_ROLEWISE_MENU" Member="ROLEWISE_MENUs" ThisKey="ID" OtherKey="MODULE_ID" Type="ROLEWISE_MENU" />
+      <Association Name="USER_GROUP_MODULE_PERMISSION" Member="USER_GROUP" ThisKey="USER_GROUP_ID" OtherKey="GROUP_ID" Type="USER_GROUP" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JOURNAL_VOUCHAR" Member="JOURNAL_VOUCHARs">
+    <Type Name="JOURNAL_VOUCHAR">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JV_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="JV_ACCOUNT_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="JV_ACCOUNT_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JV_ACCOUNT_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JV_DEBIT_AMOUNT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JV_CREDIT_AMOUNT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JV_NOTES" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="JV_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="JV_CHEQUE_NO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JV_CHEQUE_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="JV_BANK_REMARK" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="JV_ACCESS_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JV_ACCESS_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="CHART_ACCOUNT_JOURNAL_VOUCHAR" Member="CHART_ACCOUNT" ThisKey="JV_ACCOUNT_ID" OtherKey="CHART_ACC_ID" Type="CHART_ACCOUNT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CHART_ACCOUNT" Member="CHART_ACCOUNTs">
+    <Type Name="CHART_ACCOUNT">
+      <Column Name="CHART_ACC_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CHART_ACC_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CHART_ACC_PARENT_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CHART_ACC_PARENT_TYPE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CHART_ACC_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CHART_ACC_OPENING_BALANCE_DR" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="CHART_ACC_OPENING_BALANCE_CR" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="CHART_ACC_HEADER" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CHART_ACC_STATUS" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CHART_ACC_CREATION_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ACCESS_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ACCESS_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="CHART_ACCOUNT_DEPRICIATION_SETUP" Member="DEPRICIATION_SETUPs" ThisKey="CHART_ACC_ID" OtherKey="ACCOUNT_ID" Type="DEPRICIATION_SETUP" />
+      <Association Name="CHART_ACCOUNT_JOURNAL_VOUCHAR" Member="JOURNAL_VOUCHARs" ThisKey="CHART_ACC_ID" OtherKey="JV_ACCOUNT_ID" Type="JOURNAL_VOUCHAR" />
+      <Association Name="CHART_ACCOUNT_DEPOSIT_PAYMENT" Member="DEPOSIT_PAYMENTs" ThisKey="CHART_ACC_ID" OtherKey="ACCOUNT_ID" Type="DEPOSIT_PAYMENT" />
+      <Association Name="CHART_ACCOUNT_CUSTOMER_EMPLOYEE_SETUP" Member="CUSTOMER_EMPLOYEE_SETUPs" ThisKey="CHART_ACC_ID" OtherKey="ACCOUNT_ID" Type="CUSTOMER_EMPLOYEE_SETUP" />
+      <Association Name="CHART_ACCOUNT_MEMBER_ASSIGN" Member="MEMBER_ASSIGNs" ThisKey="CHART_ACC_ID" OtherKey="ACC_ID" Type="MEMBER_ASSIGN" />
+      <Association Name="CHART_ACCOUNT_MEMBER_ACC_TYPE" Member="MEMBER_ACC_TYPEs" ThisKey="CHART_ACC_ID" OtherKey="MEMBER_ACCOUNT_TYPE_ID" Type="MEMBER_ACC_TYPE" />
+      <Association Name="CHART_ACCOUNT_BALANCE_SHEET_CONFIGURE" Member="BALANCE_SHEET_CONFIGUREs" ThisKey="CHART_ACC_ID" OtherKey="ACCID" Type="BALANCE_SHEET_CONFIGURE" />
+      <Association Name="CHART_ACCOUNT_INCOME_SHEET_CONFIGURE" Member="INCOME_SHEET_CONFIGUREs" ThisKey="CHART_ACC_ID" OtherKey="ACCID" Type="INCOME_SHEET_CONFIGURE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DEPOSIT_PAYMENT" Member="DEPOSIT_PAYMENTs">
+    <Type Name="DEPOSIT_PAYMENT">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ACCOUNT_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="DEPOSIT_PAYMENT_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AMOUNT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="BANK_ACCOUNT_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="BANK_INFO_CHEQUE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="BANK_CHEQUE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BANK_CHEQUE_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CLEARING_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TRANSACTION_TYPE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JOURNAL_VOUCHER" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CANCEL_JVOUCHAR" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="ACCESS_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ACCESS_DATETIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="CHART_ACCOUNT_DEPOSIT_PAYMENT" Member="CHART_ACCOUNT" ThisKey="ACCOUNT_ID" OtherKey="CHART_ACC_ID" Type="CHART_ACCOUNT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMER_EMPLOYEE_SETUP" Member="CUSTOMER_EMPLOYEE_SETUPs">
+    <Type Name="CUSTOMER_EMPLOYEE_SETUP">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ACCOUNT_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CONTACT_NO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CONTACT_PERSON" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NATIONAL_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ADDRESS" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Association Name="CHART_ACCOUNT_CUSTOMER_EMPLOYEE_SETUP" Member="CHART_ACCOUNT" ThisKey="ACCOUNT_ID" OtherKey="CHART_ACC_ID" Type="CHART_ACCOUNT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MEMBER_INFO" Member="MEMBER_INFOs">
+    <Type Name="MEMBER_INFO">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MEMBER_NO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NO_OF_SHARE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MEMBER_FULL_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FATHER_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MOTHER_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="HUSBAND_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PRESENT_ADDRESS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PERMANENT_ADDRESS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MOBILE_NO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EDUCATION_STATUS" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="MEMBER_BIRTH_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="RELIGION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MEMBER_OCCUPATION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MARITAL_STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NATIONALITY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NOMINEE_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NOMINEE_BIRTH_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NOMINEE_OCCUPATION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="RELATION_WITH_NOMINEE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MEMBER_PHOTO" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DIGITAL_SIGNATURE" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NOMINEE_PHOTO" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ACCESS_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ACCESS_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MEMBER_ASSIGN" Member="MEMBER_ASSIGNs">
+    <Type Name="MEMBER_ASSIGN">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MEMBER_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MEMBER_PARENT_ACC_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ACC_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="CHART_ACCOUNT_MEMBER_ASSIGN" Member="CHART_ACCOUNT" ThisKey="ACC_ID" OtherKey="CHART_ACC_ID" Type="CHART_ACCOUNT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MEMBER_ACC_TYPE" Member="MEMBER_ACC_TYPEs">
+    <Type Name="MEMBER_ACC_TYPE">
+      <Column Name="TABLE_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MEMBER_ACCOUNT_TYPE_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ACCOUNT_PREFIX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="CHART_ACCOUNT_MEMBER_ACC_TYPE" Member="CHART_ACCOUNT" ThisKey="MEMBER_ACCOUNT_TYPE_ID" OtherKey="CHART_ACC_ID" Type="CHART_ACCOUNT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BALANCE_SHEET_CONFIGURE" Member="BALANCE_SHEET_CONFIGUREs">
+    <Type Name="BALANCE_SHEET_CONFIGURE">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ACCID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="CHART_ACCOUNT_BALANCE_SHEET_CONFIGURE" Member="CHART_ACCOUNT" ThisKey="ACCID" OtherKey="CHART_ACC_ID" Type="CHART_ACCOUNT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.INCOME_SHEET_CONFIGURE" Member="INCOME_SHEET_CONFIGUREs">
+    <Type Name="INCOME_SHEET_CONFIGURE">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ACCID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="CHART_ACCOUNT_INCOME_SHEET_CONFIGURE" Member="CHART_ACCOUNT" ThisKey="ACCID" OtherKey="CHART_ACC_ID" Type="CHART_ACCOUNT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.SP_JOURNAL_VOUCHAR_LAST_ID" Method="SP_JOURNAL_VOUCHAR_LAST_ID">
+    <ElementType Name="SP_JOURNAL_VOUCHAR_LAST_IDResult">
+      <Column Name="JOURNAL_ID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_GENERAL_LEDGER" Method="SP_GENERAL_LEDGER">
+    <Parameter Name="accountTitle" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="fromDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="toDate" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="SP_GENERAL_LEDGERResult">
+      <Column Name="COA_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COA_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="COA_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OP_DR" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="OP_CR" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JV_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="JV_ACCOUNT_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JV_DEBIT_AMOUNT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JV_CREDIT_AMOUNT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JV_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="JV_NOTES" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_CHART_OF_ACCOUNT_UPDATE" Method="SP_CHART_OF_ACCOUNT_UPDATE">
+    <Parameter Name="CHART_ACC_ID" Parameter="cHART_ACC_ID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="CHART_ACC_STATUS" Parameter="cHART_ACC_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_CURRENT_DEBIT_CREDIT" Method="SP_CURRENT_DEBIT_CREDIT">
+    <Parameter Name="ACC_ID" Parameter="aCC_ID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FISCALYEAR" Parameter="fISCALYEAR" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="pJD_DATE" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="SP_CURRENT_DEBIT_CREDITResult">
+      <Column Name="DEBIT" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="CREDIT" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_CURRENT_DEBIT_CREDIT_DEPRICIATION" Method="SP_CURRENT_DEBIT_CREDIT_DEPRICIATION">
+    <Parameter Name="ACC_ID" Parameter="aCC_ID" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="SP_CURRENT_DEBIT_CREDIT_DEPRICIATIONResult">
+      <Column Name="DEBIT" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="CREDIT" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_DELETE_DEPRICIATION" Method="SP_DELETE_DEPRICIATION">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_GET_ALL_DEPRICIATION" Method="SP_GET_ALL_DEPRICIATION">
+    <ElementType Name="SP_GET_ALL_DEPRICIATIONResult">
+      <Column Name="ACCESS_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ACCESS_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ACCOUNT_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ORIGINAL_COST" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DEP_VALUE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NEW_ORIGINAL_COST" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JOURNAL_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_GET_JVID_WITHOUT_BANK" Method="SP_GET_JVID_WITHOUT_BANK">
+    <ElementType Name="SP_GET_JVID_WITHOUT_BANKResult">
+      <Column Name="JV_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_CURRENT_BALANCE" Method="SP_CURRENT_BALANCE">
+    <Parameter Name="pJV_ACCOUNT_ID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="pDateTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="SP_CURRENT_BALANCEResult">
+      <Column Name="COA_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COA_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="COA_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OP_DR" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="OP_CR" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JV_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="JV_ACCOUNT_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JV_DEBIT_AMOUNT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JV_CREDIT_AMOUNT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="JV_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="JV_NOTES" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

@@ -1,0 +1,32 @@
+﻿<Window x:Class="CHART_ACC_REPORT.UI.AccountStatement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Account Statement" Height="357" Width="453" Background="{StaticResource GrayWhite}" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" ShowInTaskbar="False" KeyUp="Window_KeyUp" Closing="Window_Closing">
+    <Grid>
+        <Label Content="Fiscal Period" Height="23" HorizontalAlignment="Left" Margin="25,12,0,0" Name="label5" VerticalAlignment="Top" Width="75" />
+        <TextBox Foreground="Green" Height="25" HorizontalAlignment="Left" IsEnabled="False" IsReadOnly="True" Margin="114,11,0,0" Name="txtFiscalStartDate" VerticalAlignment="Top" Width="115" />
+        <Label Content="to" Height="27" HorizontalAlignment="Left" Margin="227,10,0,0" Name="label6" VerticalAlignment="Top" Width="25" />
+        <TextBox Foreground="Green" Height="25" HorizontalAlignment="Left" IsEnabled="False" IsReadOnly="True" Margin="250,11,0,0" Name="txtFiscalEndDate" VerticalAlignment="Top" Width="117" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="114,60,0,0" Name="dtpFrom" TabIndex="0" VerticalAlignment="Top" Width="110" />
+        <Label Content="Date From:" Height="25" HorizontalAlignment="Left" Margin="25,60,0,0" Name="label1" VerticalAlignment="Top" Width="68" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="258,60,0,0" Name="dtpTo" TabIndex="1" VerticalAlignment="Top" Width="110" />
+        <Label Content="To:" Height="25" HorizontalAlignment="Left" Margin="230,60,0,0" Name="label2" VerticalAlignment="Top" Width="25" />
+        <Button Content="Preview" Height="23" HorizontalAlignment="Left" Margin="119,267,0,0" Name="btnPreview" VerticalAlignment="Top" Width="75" Click="btnPreview_Click" />
+        <Button Content="Reset" Height="23" HorizontalAlignment="Left" Margin="210,266,0,0" Name="btnReset" VerticalAlignment="Top" Width="75" Click="btnReset_Click" />
+        <Button Content="Cancel" Height="23" HorizontalAlignment="Left" Margin="298,267,0,0" Name="btnCancel" VerticalAlignment="Top" Width="75" Click="btnCancel_Click" />
+        <Label Content="Account Type" Height="28" HorizontalAlignment="Left" Margin="25,100,0,0" Name="label3" VerticalAlignment="Top" />
+        <ComboBox Height="23" HorizontalAlignment="Left" DisplayMemberPath="Prefix" Margin="115,100,0,0" Name="cmbParentAccountType" VerticalAlignment="Top" Width="254" />
+        <RadioButton Content="Single" Height="16" HorizontalAlignment="Left" Margin="117,129,0,0" Name="rdbSingle" VerticalAlignment="Top" Checked="rdbSingle_Checked" />
+        <RadioButton Content="Range" Height="16" HorizontalAlignment="Left" Margin="202,129,0,0" Name="rdbGroupRange" VerticalAlignment="Top" Checked="rdbGroupRange_Checked" />
+        <RadioButton Content="All" Height="16" HorizontalAlignment="Left" Margin="310,129,0,0" Name="rdbAll" VerticalAlignment="Top" Checked="rdbAll_Checked" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="117,157,0,0" Name="txtSingleAccNo" VerticalAlignment="Top" Width="252" Style="{StaticResource GraywithBlueBorderTextBox}"/>
+        <Label Content="Account No:" Height="28" HorizontalAlignment="Left" Margin="25,157,0,0" Name="label4" VerticalAlignment="Top" />
+        <Label Content="Account No:" Height="28" HorizontalAlignment="Left" Margin="27,187,0,0" Name="label7" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="117,191,0,0" Name="txtFromAcc" VerticalAlignment="Top" Width="120" Style="{StaticResource GraywithBlueBorderTextBox}" PreviewTextInput="txtAccNo_PreviewTextInput" />
+        <Label Content="to" Height="28" HorizontalAlignment="Left" Margin="237,191,0,0" Name="label8" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="257,192,0,0" Name="txtToAcc" VerticalAlignment="Top" Width="113" Style="{StaticResource GraywithBlueBorderTextBox}" PreviewTextInput="txtAccNo_PreviewTextInput" />
+        <RadioButton Content="Summary" Height="16" HorizontalAlignment="Left" Margin="165,227,0,0" Name="rdbSummary" VerticalAlignment="Top" GroupName="sm_dt"/>
+        <RadioButton Content="Details" Height="16" HorizontalAlignment="Left" Margin="250,228,0,0" Name="rdbDetails" VerticalAlignment="Top" GroupName="sm_dt"/>
+        <Label Content="Action" Height="28" HorizontalAlignment="Left" Margin="27,124,0,0" Name="label9" VerticalAlignment="Top" />
+    </Grid>
+</Window>

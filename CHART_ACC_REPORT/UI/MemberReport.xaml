@@ -1,0 +1,11 @@
+﻿<Window x:Class="CHART_ACC_REPORT.UI.MemberReport"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Member Report" Height="218" Width="405" ResizeMode="CanMinimize" ShowInTaskbar="False" Background="{StaticResource GrayWhite}" WindowStartupLocation="CenterScreen" KeyUp="Window_KeyUp" Closing="Window_Closing">
+    <Grid>
+        <Label Content="Member No" Height="23" HorizontalAlignment="Left" Margin="32,52,0,0" Name="label1" VerticalAlignment="Top" Width="77" />
+        <TextBox Height="24" HorizontalAlignment="Left" Margin="113,54,0,0" Name="txtMemberNo" VerticalAlignment="Top" Width="193" Style="{StaticResource GraywithBlueBorderTextBox}" />
+        <CheckBox Content="All" Height="19" HorizontalAlignment="Left" Margin="316,57,0,0" Name="chkAll" VerticalAlignment="Top" Width="37" />
+        <Button Content="Preview" Height="23" HorizontalAlignment="Left" Margin="216,104,0,0" Name="btnPreview" VerticalAlignment="Top" Width="90" Click="btnPreview_Click" />
+    </Grid>
+</Window>

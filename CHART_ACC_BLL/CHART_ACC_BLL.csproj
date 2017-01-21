@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{077A7C52-7812-4F74-8138-C30E3F847352}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CHART_ACC_BLL</RootNamespace>
+    <AssemblyName>CHART_ACC_BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BAccountType.cs" />
+    <Compile Include="BBalanceSheetConfigure.cs" />
+    <Compile Include="BChartOfAccount.cs" />
+    <Compile Include="BChartOfAccountModify.cs" />
+    <Compile Include="BCompanySetup.cs" />
+    <Compile Include="BContraVoucher.cs" />
+    <Compile Include="BCustomer_Employee.cs" />
+    <Compile Include="BDeposit_Payment.cs" />
+    <Compile Include="BDepriciation.cs" />
+    <Compile Include="BDepriciationSetup.cs" />
+    <Compile Include="BFiscalYear.cs" />
+    <Compile Include="BIncomeConfigure.cs" />
+    <Compile Include="BJournalVouchar.cs" />
+    <Compile Include="BMemberAccountType.cs" />
+    <Compile Include="BMemberAssign.cs" />
+    <Compile Include="BMemberSetup.cs" />
+    <Compile Include="BMenuPermission.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CHART_ACC_DAL\CHART_ACC_DAL.csproj">
+      <Project>{F10C7817-7388-41DF-ADCD-3B16A7FF9867}</Project>
+      <Name>CHART_ACC_DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CHART_ACC_ENTITY\CHART_ACC_ENTITY.csproj">
+      <Project>{B218A61E-112F-4F2D-A1D7-D50C05CBCFEB}</Project>
+      <Name>CHART_ACC_ENTITY</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

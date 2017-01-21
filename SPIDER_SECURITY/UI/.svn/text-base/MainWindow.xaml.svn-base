@@ -1,0 +1,12 @@
+﻿<Window x:Class="SPIDER_SECURITY.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Dash-Board" Height="414" Width="866" WindowStartupLocation="CenterScreen" Background="{StaticResource {x:Static SystemColors.InactiveBorderBrushKey}}" Closing="Window_Closing" ResizeMode="CanMinimize" Icon="/SPIDER_SECURITY;component/Images/MP900175571-JPG.png">
+    <Grid>
+        <Button Content="Accounting" Height="74" HorizontalAlignment="Left" Name="btnAccounting" Style="{StaticResource AccountingStyle}" VerticalAlignment="Top" Width="238" Margin="192,110,0,0" Click="btnAccounting_Click" IsEnabled="False"></Button>
+        <!--<Button Content="HRM" Height="74" HorizontalAlignment="Left" Margin="629,207,0,0" Name="btnHRM" Style="{StaticResource HRMStyle}" VerticalAlignment="Top" Width="238" Click="btnHRM_Click" IsEnabled="False" />-->
+        <Button Content="Security" Height="74" HorizontalAlignment="Left" Margin="431,110,0,0" Name="btnSecurity" Style="{StaticResource SecurityStyle}" VerticalAlignment="Top" Width="238" Click="btnSecurity_Click" IsEnabled="False" />
+        <Button Content="Admin Tools" Height="74" HorizontalAlignment="Left" Margin="193,185,0,0" Name="btnAdminTools" Style="{StaticResource AdminToolsStyle}" VerticalAlignment="Top" Width="238" Click="btnAdminTools_Click" IsEnabled="False" />
+        <Button Content="Logout" Height="74" HorizontalAlignment="Left" Margin="432,185,0,0" Name="btnLogout" Style="{StaticResource LogoutStyle}" VerticalAlignment="Top" Width="238" Click="btnLogout_Click" IsEnabled="True" />
+    </Grid>
+</Window>

@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--=================================ListBox Row sepaerator============================================-->
+    <Style TargetType="ListBoxItem" x:Key="ListboxItemStyle">
+        <Style.Resources>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Orange"/>
+            <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="LightBlue"/>
+        </Style.Resources>
+        <Style.Triggers>
+            <!-- setting up triggers for alternate background colors -->
+            <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                <Setter Property="Background" Value="#BAAEC7C5"></Setter>
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                <Setter Property="Background" Value="#6548A070"></Setter>
+            </Trigger>            
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

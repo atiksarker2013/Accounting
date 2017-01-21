@@ -1,0 +1,29 @@
+﻿<Window x:Class="CHART_ACC_UI.UI.ChartOfAccountModify"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Chart of Account - [Modify]" Height="413" Width="643" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" KeyUp="Window_KeyUp" Background="{StaticResource GrayWhite}" Closing="Window_Closing" ShowInTaskbar="False" MouseLeftButtonUp="Window_MouseLeftButtonUp">
+    <Grid>
+        <TreeView Height="357" HorizontalAlignment="Left" Name="trvAccountType" VerticalAlignment="Top" Width="216" Margin="6,6,0,0" SelectedItemChanged="trvAccountType_SelectedItemChanged" />
+        <Label Content=" Account Name" Height="27" HorizontalAlignment="Left" Margin="292,130,0,0" Name="label1" VerticalAlignment="Top" Width="93" />
+        <TextBox FontWeight="Bold" Height="26" HorizontalAlignment="Left" IsReadOnly="False" Margin="389,129,0,0" Name="txtAccountName" VerticalAlignment="Top" Width="221" Style="{StaticResource GraywithBlueBorderTextBox}" />
+        <Label Content="Status" Height="26" HorizontalAlignment="Left" Margin="337,191,0,0" Name="label5" VerticalAlignment="Top" Width="46" />
+        <ComboBox Height="24" HorizontalAlignment="Left" Margin="389,194,0,0" Name="cmbStatus" VerticalAlignment="Top" Width="220" />
+        <Label Content="Account No" Height="24" HorizontalAlignment="Left" Margin="308,158,0,0" Name="label2" VerticalAlignment="Top" Width="75" />
+        <TextBox Height="26" HorizontalAlignment="Left" IsReadOnly="True" Margin="389,161,0,0" Name="txtAccountCode" VerticalAlignment="Top" Width="221" Style="{StaticResource GraywithBlueBorderTextBox}" />
+        <Button Content="Update" Height="23" HorizontalAlignment="Left" Margin="397,286,0,0" Name="btnUpdate" VerticalAlignment="Top" Width="90" Click="btnUpdate_Click" />
+        <Button Content="Reset" Height="23" HorizontalAlignment="Left" Margin="520,285,0,0" Name="btnReset" VerticalAlignment="Top" Width="90" Click="btnReset_Click" />
+        <Label Content="Parent Account No" Height="27" HorizontalAlignment="Left" Margin="273,97,0,0" Name="label3" VerticalAlignment="Top" Width="112" />
+        <TextBox FontWeight="Bold" Height="26" HorizontalAlignment="Left" IsReadOnly="True" Margin="389,96,0,0" Name="txtParentAccountNo" Style="{StaticResource GraywithBlueBorderTextBox}" VerticalAlignment="Top" Width="221" />
+        <Label Content="Parent Account Name" Height="27" HorizontalAlignment="Left" Margin="257,63,0,0" Name="label4" VerticalAlignment="Top" Width="128" />
+        <TextBox FontWeight="Bold" Height="26" HorizontalAlignment="Left" IsReadOnly="True" Margin="389,62,0,0" Name="txtParentAccountName" Style="{StaticResource GraywithBlueBorderTextBox}" VerticalAlignment="Top" Width="221" />
+        <Button Height="26" HorizontalAlignment="Left" Margin="389,224,0,0" Name="btnNewParentAccount" VerticalAlignment="Top" Width="220" Click="btnNewParentAccount_Click">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Name="txtNewParentAccountName" Style="{x:Null}" Text="" Width="180" IsReadOnly="True" />
+                <Image Source="/CHART_ACC_UI;component/Images/ComboIcon.PNG" Width="27" />
+            </StackPanel>
+        </Button>
+        <Label Content="New Parent Account Name" Height="26" HorizontalAlignment="Left" Margin="228,223,0,0" Name="label6" VerticalAlignment="Top" Width="155" />
+        <TreeView Height="Auto" MinHeight="25" MaxHeight="200" HorizontalAlignment="Left" Margin="390,251,0,0" Name="trvAccount" VerticalAlignment="Top" Width="220" SelectedItemChanged="trvAccount_SelectedItemChanged" />
+        <Button Content="Delete" Height="23" HorizontalAlignment="Left" Margin="521,327,0,0" Name="btnDelete" VerticalAlignment="Top" Width="90" Click="btnDelete_Click" />
+    </Grid>
+</Window>

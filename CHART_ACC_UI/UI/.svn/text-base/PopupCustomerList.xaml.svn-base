@@ -1,0 +1,31 @@
+﻿<Window x:Class="CHART_ACC_UI.UI.PopupCustomerList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Customer/Employee List" Height="464" Width="901" WindowStartupLocation="CenterScreen" Background="{StaticResource GrayWhite}" ResizeMode="CanMinimize" ShowInTaskbar="False">
+    <Grid>
+        <GroupBox Header="Filter By" Height="62" HorizontalAlignment="Left" Margin="20,11,0,0" Name="groupBox1" VerticalAlignment="Top" Width="847">
+            <Grid>
+                <Label Content="Account Name" Height="28" HorizontalAlignment="Left" Margin="5,6,0,0" Name="label2" VerticalAlignment="Top" />
+                <Label Content="Account No" Height="28" HorizontalAlignment="Left" Margin="335,6,0,0" Name="label4" VerticalAlignment="Top" />
+                <Button Content="Reset" Height="23" HorizontalAlignment="Left" Margin="752,8,0,0" Name="btnReset" VerticalAlignment="Top" Width="63" Click="btnReset_Click" />
+                <Button Content="Search" Height="23" HorizontalAlignment="Left" Margin="669,8,0,0" Name="btnSearch" VerticalAlignment="Top" Width="75" Click="btnSearch_Click" />
+            </Grid>
+        </GroupBox>
+        <ListView Margin="12,79,12,12" Name="lvCustomerEmployee" KeyDown="lvCustomerEmployee_KeyDown" ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" TabIndex="0" MouseDoubleClick="lvCustomerEmployee_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Account No" DisplayMemberBinding="{Binding Path=AccountCode}" Width="125"/>
+                    <GridViewColumn Header="Account Name" DisplayMemberBinding="{Binding Path=AccountName}" Width="125"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=EployeeName}" Width="150"/>
+                    <GridViewColumn Header="Contact No." DisplayMemberBinding="{Binding Path=Contact_No}" Width="100"/>
+                    <GridViewColumn Header="Contact Person" DisplayMemberBinding="{Binding Path=ContactPerson}" Width="105"/>
+                    <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Path=Address}" Width="150"/>                    
+                    <GridViewColumn Header="Current Balance" DisplayMemberBinding="{Binding Path=CurrentBalance}" Width="90"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="131,36,0,0" Name="txtAccName" VerticalAlignment="Top" Width="201" Style="{StaticResource GraywithBlueBorderTextBox}" KeyDown="txtAccName_KeyDown" />
+        <Label Content="or" Height="28" HorizontalAlignment="Left" Margin="338,33,0,0" Name="label3" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="437,36,0,0" Name="txtAccountCode" VerticalAlignment="Top" Width="238" Style="{StaticResource GraywithBlueBorderTextBox}" KeyDown="txtAccountCode_KeyDown" />
+    </Grid>
+</Window>

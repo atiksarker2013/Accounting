@@ -1,0 +1,8 @@
+﻿<Window x:Class="CHART_ACC_REPORT.UI.ReportViewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ReportViewer" Height="510" Width="912" WindowState="Maximized" xmlns:my="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer">
+    <Grid>
+        <my:CrystalReportsViewer Margin="63,38,0,0" Name="crystalReportsViewer" ShowLogo="False" VerticalAlignment="Top" HorizontalAlignment="Center" ShowToggleSidePanelButton="True" ShowToolbar="True" ShowOpenFileButton="False" />
+    </Grid>
+</Window>

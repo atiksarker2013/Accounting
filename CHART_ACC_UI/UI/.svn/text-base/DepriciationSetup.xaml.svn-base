@@ -1,0 +1,76 @@
+﻿<Window x:Class="CHART_ACC_UI.UI.DepriciationSetup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Depreciation Setup" Height="349" Width="662" WindowStartupLocation="CenterScreen" Background="{StaticResource GrayWhite}" MouseLeftButtonUp="Window_MouseLeftButtonUp" ResizeMode="CanMinimize" KeyUp="Window_KeyUp" Closing="Window_Closing" ShowInTaskbar="False">
+    <Grid>
+        <ListView Height="137" HorizontalAlignment="Left" Margin="53,160,0,0" Name="lvDepriciationSetup" VerticalAlignment="Top" Width="539" ItemContainerStyle="{StaticResource alternatingListViewItemStyle}">
+            <ListView.ContextMenu>
+                <ContextMenu Name="vatContextMenu" StaysOpen="True">
+                    <MenuItem Header="Update"   Name="editData" Click="editData_Click"></MenuItem>
+                    <!--<MenuItem Header="Delete" Name="deleteData"></MenuItem>-->
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Account Name" Width="200" DisplayMemberBinding="{Binding Account_Name}"></GridViewColumn>
+                    <GridViewColumn Header="Rate" Width="70" DisplayMemberBinding="{Binding Dep_Percentage}"></GridViewColumn>
+                    <GridViewColumn Header="Access By" Width="120" DisplayMemberBinding="{Binding Access_By}"></GridViewColumn>
+                    <GridViewColumn Header="Access Date" Width="120" DisplayMemberBinding="{Binding Access_Date, StringFormat=dd/MM/yyyy}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Account Name" Height="23" HorizontalAlignment="Left" Margin="10,15,0,0" Name="label1" VerticalAlignment="Top" Width="90" />
+        <Label Content="Depriciation" Height="29" HorizontalAlignment="Left" Margin="346,53,0,0" Name="label3" VerticalAlignment="Top" Width="76" />
+        <TextBox Height="25" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="426,53,0,0" Name="txtDepriciationPercentage" Style="{StaticResource GraywithBlueBorderTextBox}" TabIndex="2" VerticalAlignment="Top" Width="85" PreviewTextInput="txtDepriciationPercentage_PreviewTextInput" />
+        <ComboBox Height="25" HorizontalAlignment="Left" Margin="106,15,0,0" Name="cmbFixedAccountName" VerticalAlignment="Top" Width="206" SelectionChanged="cmbFixedAccountName_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding AccountName}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label Content="%" FontWeight="Bold" Height="27" HorizontalAlignment="Left" Margin="513,52,0,0" Name="label5" VerticalAlignment="Top" Width="25" />
+        <Button Height="25" HorizontalAlignment="Left" Margin="106,55,0,0" Name="btnDRAccount" TabIndex="4" VerticalAlignment="Top" Width="206" Click="btnDRAccount_Click">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="txtDRAccountName" Style="{x:Null}" Text="" Width="170" />
+                <Image Source="/CHART_ACC_UI;component/Images/ComboIcon.PNG" Width="27" />
+            </StackPanel>
+        </Button>
+        <Label Content="Debit Account" Height="28" HorizontalAlignment="Left" Margin="14,57,0,0" Name="label7" VerticalAlignment="Top" />
+        <Button Height="25" HorizontalAlignment="Left" Margin="106,95,0,0" Name="btnCRAccount" TabIndex="4" VerticalAlignment="Top" Width="206" Click="btnCRAccount_Click">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="txtCRAccountName" Style="{x:Null}" Text="" Width="170" />
+                <Image Source="/CHART_ACC_UI;component/Images/ComboIcon.PNG" Width="27" />
+            </StackPanel>
+        </Button>
+        <Label Content="Crdit Account" Height="28" HorizontalAlignment="Left" Margin="18,95,0,0" Name="label8" VerticalAlignment="Top" />
+        <TreeView Height="Auto" HorizontalAlignment="Left" Margin="106,79,0,0" MaxHeight="250" MinHeight="25" Name="trvDRAccountType" VerticalAlignment="Top" Width="206" SelectedItemChanged="trvDRAccountType_SelectedItemChanged">
+            <TreeView.Resources>
+                <Style TargetType="TreeViewItem">
+                    <Style.Triggers>
+                        <Trigger Property="UIElement.IsMouseOver" Value="True">
+                            <Setter Property="Control.Background" Value="LightBlue" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TreeView.Resources>
+        </TreeView>
+        <TreeView Height="Auto" HorizontalAlignment="Left" Margin="106,118,0,0" MaxHeight="250" MinHeight="25" Name="trvCRAccountType" VerticalAlignment="Top" Width="206" SelectedItemChanged="trvCRAccountType_SelectedItemChanged">
+            <TreeView.Resources>
+                <Style TargetType="TreeViewItem">
+                    <Style.Triggers>
+                        <Trigger Property="UIElement.IsMouseOver" Value="True">
+                            <Setter Property="Control.Background" Value="LightBlue" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TreeView.Resources>
+        </TreeView>
+        <Label Content="Balance" Height="29" HorizontalAlignment="Left" Margin="366,17,0,0" Name="label2" VerticalAlignment="Top" Width="53" />
+        <TextBox Height="25" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="425,17,0,0" Name="txtBalance" Style="{StaticResource GraywithBlueBorderTextBox}" TabIndex="2" VerticalAlignment="Top" Width="173" IsReadOnly="True" />
+        <Button Content="Save" Height="25" HorizontalAlignment="Left" Margin="426,90,0,0" Name="btnSave" VerticalAlignment="Top" Width="85" Click="btnSave_Click" />
+        <Button Content="Reset" Height="25" HorizontalAlignment="Left" Margin="518,89,0,0" Name="btnReset" VerticalAlignment="Top" Width="80" Click="btnReset_Click" />
+    </Grid>
+</Window>

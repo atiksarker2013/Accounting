@@ -1,0 +1,57 @@
+﻿<Window x:Class="CHART_ACC_UI.UI.BalanceSheetConfigure"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BalanceSheet Configure" Height="675" Width="1015" Background="{StaticResource GrayWhite}" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" ShowInTaskbar="False" KeyUp="Window_KeyUp" Closing="Window_Closing">
+    <Window.Resources>
+        <Style TargetType="{x:Type DataGridCell}">
+            <Style.Triggers>
+                <Trigger Property="DataGridCell.IsSelected" Value="True">
+                    <Setter Property="Background" Value="Orange" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <DataGrid Margin="12,50,0,0" Name="dgAsset" RowBackground="#BAAEC7C5" AlternationCount="2" AlternatingRowBackground="#6548A070" HorizontalAlignment="Left" Width="321" Height="552" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Account Name" Binding="{Binding Path=SubAccName}" Width="255" IsReadOnly="True" CanUserSort="False"/>
+                <DataGridTemplateColumn Header="" Width="40">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate >
+                            <CheckBox Name="CheckboxAsset" Checked="CheckboxAsset_Checked" HorizontalAlignment="Center" IsChecked="{Binding Path=Status,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Height="552" RowBackground="#BAAEC7C5" AlternationCount="2" AlternatingRowBackground="#6548A070" HorizontalAlignment="Left" Margin="343,46,0,0" Name="dgLiability" VerticalAlignment="Top" Width="315" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Account Name" Binding="{Binding Path=SubAccName}" Width="255" IsReadOnly="True" CanUserSort="False"/>
+                <DataGridTemplateColumn Header="" Width="40">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate >
+                            <CheckBox Name="CheckboxLiability" Checked="CheckboxLiability_Checked" HorizontalAlignment="Center" IsChecked="{Binding Path=Status,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Height="552" RowBackground="#BAAEC7C5" AlternationCount="2" AlternatingRowBackground="#6548A070" HorizontalAlignment="Left" Margin="666,46,0,0" Name="dgOwnersEquity" VerticalAlignment="Top" Width="315" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Account Name" Binding="{Binding Path=SubAccName}" Width="255" IsReadOnly="True" CanUserSort="False"/>
+                <DataGridTemplateColumn Header="" Width="40">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate >
+                            <CheckBox Name="CheckboxOwnersEquity" Checked="CheckboxOwnersEquity_Checked" HorizontalAlignment="Center" IsChecked="{Binding Path=Status,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Save" Height="23" HorizontalAlignment="Left" Margin="421,604,0,0" Name="btnSave" VerticalAlignment="Top" Width="75" Click="btnSave_Click" />        
+        <Button Content="Close" Height="23" HorizontalAlignment="Left" Margin="502,604,0,0" Name="btnClose" VerticalAlignment="Top" Width="75" Click="btnClose_Click" />
+        <Label Content="Asset" Height="33" HorizontalAlignment="Left" Margin="23,7,0,0" Name="label1" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Liability" Height="28" HorizontalAlignment="Left" Margin="353,9,0,0" Name="label2" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" />
+        <Label Content="Owners Equity" Height="28" HorizontalAlignment="Left" Margin="688,10,0,0" Name="label3" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" />
+    </Grid>
+</Window>

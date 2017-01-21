@@ -1,0 +1,74 @@
+8
+
+dir
+951
+svn://madcow/accountsoft/trunk/CHART_ACC
+svn://madcow/accountsoft
+
+
+
+2012-06-21T03:35:15.937500Z
+951
+amin
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+4aa2f02b-a843-444f-a285-3b7bbffcebcc
+
+CHART_ACC_BLL
+dir
+
+CHART_ACC_REPORT
+dir
+
+CHART_ACC.sln
+file
+
+
+
+
+2012-05-30T03:26:47.068997Z
+44c4915fc61d3d8c6bc7c4ad64513162
+2012-05-29T05:35:58.406250Z
+890
+refat
+
+CHART_ACC_ENTITY
+dir
+
+CHART_ACC_UI
+dir
+
+CHART_ACC_DAL
+dir
+
+Tech_Doc
+dir
+
+CHART_ACC.suo
+file
+957
+
+
+
+2012-07-05T12:34:46.039000Z
+b31678edf36118a9e3b9a7e50f82c681
+2012-07-17T07:05:30.265625Z
+957
+amin
+has-props
+
+SPIDER_SECURITY
+dir
+

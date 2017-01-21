@@ -1,0 +1,23 @@
+﻿<Window x:Class="SPIDER_SECURITY.UI.login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Log-in" Height="345" Width="489" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Closing="Window_Closing" WindowStyle="None" Icon="/SPIDER_SECURITY;component/Images/login.png">
+    <Window.Background>
+        <ImageBrush ImageSource="/SPIDER_SECURITY;component/Images/bakPix.png"/>
+    </Window.Background>
+    <Grid>
+        <Image Height="148" Margin="165,0,152,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Source="/SPIDER_SECURITY;component/Images/login.png" />
+        <Label Content="User Name" Height="28" HorizontalAlignment="Left" Margin="44,151,0,0" Name="label1" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox Height="25" HorizontalAlignment="Left" Margin="134,154,0,0" Name="txtUserName" VerticalAlignment="Top" Width="248" BorderBrush="Green" TabIndex="0" KeyUp="txtUserName_KeyUp" FontSize="15" FontWeight="Bold" Foreground="Maroon" />
+        <Label Content="Password" Height="28" HorizontalAlignment="Left" Margin="44,204,0,0" Name="label2" VerticalAlignment="Top" FontSize="14"/>
+        <PasswordBox Height="25" HorizontalAlignment="Left" Margin="134,204,0,0" Name="txtPassword" VerticalAlignment="Top" Width="248" BorderBrush="Green" TabIndex="1" KeyUp="txtPassword_KeyUp" Foreground="Maroon" FontSize="15" FontWeight="Bold" />
+        <Button Content="Login" Height="24" HorizontalAlignment="Left" Margin="241,259,0,0" Name="btnLogin" VerticalAlignment="Top" Width="74" BorderBrush="#2C000000" Click="btnLogin_Click" TabIndex="2">
+            <Button.Effect>
+                <DropShadowEffect Opacity="0.4" Direction="215" Color="Black" ShadowDepth="3"></DropShadowEffect>
+            </Button.Effect>
+        </Button>
+        <Button Height="24" Content="Close" HorizontalAlignment="Left" Margin="321,259,0,0" Name="btnClose" VerticalAlignment="Top" Width="61" Click="btnClose_Click">
+            
+        </Button>
+    </Grid>
+</Window>

@@ -1,0 +1,27 @@
+﻿<Window x:Class="CHART_ACC_UI.UI.MemberAssign"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Member/Customer Assign" Height="374" Width="462" Background="{StaticResource GrayWhite}" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" ShowInTaskbar="False" KeyUp="Window_KeyUp" Closing="Window_Closing">
+    <Grid>
+        <Label Content="Member/Customer No" Height="28" HorizontalAlignment="Left" Margin="10,44,0,0" Name="label1" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="172,48,0,0" Name="txtMemberNo" VerticalAlignment="Top" Width="196" Style="{StaticResource GraywithBlueBorderTextBox}" IsEnabled="False" IsReadOnly="False" />
+        <Label Content="Member/Customer Name" Height="28" Margin="10,85,0,0" Name="label2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="156" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="172,87,0,0" Name="txtMemberName" VerticalAlignment="Top" Width="232" Style="{StaticResource GraywithBlueBorderTextBox}" IsEnabled="False" IsReadOnly="False" />
+        <Label Content="Parent Account" Height="28" HorizontalAlignment="Left" Margin="10,121,0,0" Name="label3" VerticalAlignment="Top" />
+        <ComboBox Height="23" DisplayMemberPath="Account_Prefix" HorizontalAlignment="Left" Margin="172,127,0,0" Name="cmbParentAccount" VerticalAlignment="Top" Width="149" SelectionChanged="cmbParentAccount_SelectionChanged" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="325,127,0,0" Name="txtParentAccountCode" VerticalAlignment="Top" Width="79" Style="{StaticResource GraywithBlueBorderTextBox}" IsEnabled="False" IsReadOnly="False" />
+        <Label Content="Account Name" Height="28" HorizontalAlignment="Left" Margin="10,154,0,0" Name="label7" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="172,159,0,0" Name="txtAccName" VerticalAlignment="Top" Width="232" Style="{StaticResource GraywithBlueBorderTextBox}" />
+        <Label Content="Account No" Height="28" HorizontalAlignment="Left" Margin="10,180,0,0" Name="label4" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="172,188,0,0" Name="txtAccountNo" VerticalAlignment="Top" Width="232" Style="{StaticResource GraywithBlueBorderTextBox}" />
+        <Label Content="Opening Balance" Height="28" HorizontalAlignment="Left" Margin="10,219,0,0" Name="label6" VerticalAlignment="Top" />
+        <TextBox Height="23" Margin="172,221,0,0" Name="txtOpeningBalance" VerticalAlignment="Top" Style="{StaticResource GraywithBlueBorderTextBox}" HorizontalContentAlignment="Right" PreviewTextInput="txtOpeningBalance_PreviewTextInput" HorizontalAlignment="Left" Width="184" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="359,221,0,0" Name="cmbDrCr" VerticalAlignment="Top" Width="45" />
+        <Label Content="Status" Height="28" HorizontalAlignment="Left" Margin="10,257,0,0" Name="label5" VerticalAlignment="Top" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="172,257,0,0" Name="cmbStatus" VerticalAlignment="Top" Width="232" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="371,48,0,0" Name="btnMemberSearch" VerticalAlignment="Top" Width="33" Click="btnMemberSearch_Click" />
+        <Button Content="Save" Height="23" HorizontalAlignment="Left" Margin="172,299,0,0" Name="btnSave" VerticalAlignment="Top" Width="75" Click="btnSave_Click" />
+        <Button Content="Reset" Height="23" HorizontalAlignment="Left" Margin="250,299,0,0" Name="btnReset" VerticalAlignment="Top" Width="75" Click="btnReset_Click" />
+        <Button Content="Close" Height="23" HorizontalAlignment="Left" Margin="329,299,0,0" Name="btnClose" VerticalAlignment="Top" Width="75" Click="btnClose_Click" />        
+    </Grid>
+</Window>

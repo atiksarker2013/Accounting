@@ -1,0 +1,49 @@
+﻿<Window x:Class="CHART_ACC_UI.UI.Customer_EmployeeSetup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
+        Title="Customer/Employee Setup" Height="472" Width="478" WindowStartupLocation="CenterScreen" KeyUp="Window_KeyUp" MouseLeftButtonUp="Window_MouseLeftButtonUp" Background="{StaticResource GrayWhite}" ResizeMode="CanMinimize" ShowInTaskbar="False" Closing="Window_Closing">    
+    <Grid>
+        <Button Margin="133,208,0,0" Click="Button_Click" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="220" Name="btnParentAccount" TabIndex="4">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="" Style="{x:Null}" Name="txtBlockAccountName" Width="177"/>
+                <Image Source="/CHART_ACC_UI;component/Images/ComboIcon.PNG" Width="27"/>
+            </StackPanel>
+        </Button>
+        <Label Content="Parent Account" Height="28" HorizontalAlignment="Left" Margin="25,207,0,0" Name="label1" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="133,18,0,0" Name="txtName" VerticalAlignment="Top" Width="220" TabIndex="0" Style="{StaticResource GraywithBlueBorderTextBox}" />
+        <Label Content="Cust/Emp. Name" Height="28" HorizontalAlignment="Left" Margin="25,14,0,0" Name="label2" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="133,49,0,0" Name="txtContactNo" VerticalAlignment="Top" Width="220" TabIndex="1" Style="{StaticResource GraywithBlueBorderTextBox}" />
+        <Label Content="Contact No." Height="28" HorizontalAlignment="Left" Margin="25,44,0,0" Name="label3" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="133,119,0,0" Name="txtNationalId" VerticalAlignment="Top" Width="220" TabIndex="2" Style="{StaticResource GraywithBlueBorderTextBox}" />
+        <Label Content="National Id" Height="28" HorizontalAlignment="Left" Margin="25,119,0,0" Name="label4" VerticalAlignment="Top" />
+        <Label Content="Parent A/C No." Height="28" HorizontalAlignment="Left" Margin="25,241,0,0" Name="label10" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="133,241,0,0" Name="txtParentAccountCode" VerticalAlignment="Top" Width="220" TabIndex="5" Style="{StaticResource GraywithBlueBorderTextBox}" IsEnabled="False" />
+        <Label Content="Account Name" Height="28" HorizontalAlignment="Left" Margin="25,265,0,0" Name="label5" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="133,270,0,0" Name="txtAccountName" VerticalAlignment="Top" Width="220" TabIndex="5" Style="{StaticResource GraywithBlueBorderTextBox}" />
+        <Label Content="Account No" Height="28" HorizontalAlignment="Left" Margin="25,295,0,0" Name="label8" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="133,300,0,0" Name="txtAccountCode" VerticalAlignment="Top" Width="220" TabIndex="6" Style="{StaticResource GraywithBlueBorderTextBox}" />
+        <Label Content="Opening Balance" Height="28" HorizontalAlignment="Left" Margin="25,330,0,0" Name="label6" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="133,331,0,0" Name="txtOpeningBalance" VerticalAlignment="Top" Width="158" PreviewTextInput="txtOpeningBalance_PreviewTextInput" TabIndex="7" Style="{StaticResource GraywithBlueBorderTextBox}" HorizontalContentAlignment="Right" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="294,331,0,0" Name="cmbTransType" VerticalAlignment="Top" Width="59" TabIndex="8" />
+        <Label Content="Status" Height="28" HorizontalAlignment="Left" Margin="25,362,0,0" Name="label7" VerticalAlignment="Top" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="133,367,0,0" Name="cmbStatus" VerticalAlignment="Top" Width="220" TabIndex="9" />
+        <Button Content="Save" Height="23" HorizontalAlignment="Left" Margin="133,401,0,0" Name="btnSave" VerticalAlignment="Top" Width="68" Click="btnSave_Click" TabIndex="10" />
+        <Button Content="Reset" Height="23" HorizontalAlignment="Left" Margin="208,402,0,0" Name="btnReset" VerticalAlignment="Top" Width="68" Click="btnReset_Click" TabIndex="11" />
+        <Button Content="Close" Height="23" HorizontalAlignment="Left" Margin="286,402,0,0" Name="btnCancel" VerticalAlignment="Top" Width="68" Click="btnCancel_Click" TabIndex="12" />
+        <TreeView Name="trvAccountType" SelectedItemChanged="trvAccountType_SelectedItemChanged" Margin="133,231,0,0" Height="Auto" MaxHeight="250"  HorizontalAlignment="Left" Width="220" VerticalAlignment="Top">
+            <TreeView.Resources>
+                <Style TargetType="TreeViewItem">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="LightBlue" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TreeView.Resources>
+        </TreeView>
+        <Label Content="Address" Height="28" HorizontalAlignment="Left" Margin="27,157,0,0" Name="label9" VerticalAlignment="Top" />
+        <TextBox Height="54" HorizontalAlignment="Left" Margin="133,148,0,0" Name="txtAddress" VerticalAlignment="Top" Width="220" TabIndex="3" Style="{StaticResource GraywithBlueBorderTextBox}" AcceptsReturn="True" TextWrapping="Wrap"/>
+        <Label Content="Contact Person" Height="28" HorizontalAlignment="Left" Margin="27,82,0,0" Name="label11" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="133,83,0,0" Name="txtContactPerson" VerticalAlignment="Top" Width="220" Style="{StaticResource GraywithBlueBorderTextBox}" />
+    </Grid>
+</Window>

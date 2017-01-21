@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ACCDB" Class="Spider_AccDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="ConnectionString" ConnectionString="Data Source=webserver;Initial Catalog=ACCDB;Persist Security Info=True;User ID=sa;Password=sa" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.USER_GROUP" Member="USER_GROUPs">
+    <Type Name="USER_GROUP">
+      <Column Name="GROUP_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GROUP_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="USER_GROUP_USER" Member="USERs" ThisKey="GROUP_ID" OtherKey="USER_GROUP_ID" Type="USER" />
+      <Association Name="USER_GROUP_ROLEWISE_MENU" Member="ROLEWISE_MENUs" ThisKey="GROUP_ID" OtherKey="USER_GROUP_ID" Type="ROLEWISE_MENU" />
+      <Association Name="USER_GROUP_MODULE_PERMISSION" Member="MODULE_PERMISSIONs" ThisKey="GROUP_ID" OtherKey="USER_GROUP_ID" Type="MODULE_PERMISSION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[USER]" Member="USERs">
+    <Type Name="USER">
+      <Column Name="USER_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USER_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_PASSWORD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_GROUP_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="USER_GROUP_USER" Member="USER_GROUP" ThisKey="USER_GROUP_ID" OtherKey="GROUP_ID" Type="USER_GROUP" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ROLEWISE_MENU" Member="ROLEWISE_MENUs">
+    <Type Name="ROLEWISE_MENU">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MODULE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="USER_GROUP_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="PARENT_MENU_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PARENT_MENU_CONTENT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CHILD_MENU_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CHILD_MENU_CONTENT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="USER_GROUP_ROLEWISE_MENU" Member="USER_GROUP" ThisKey="USER_GROUP_ID" OtherKey="GROUP_ID" Type="USER_GROUP" IsForeignKey="true" />
+      <Association Name="MODULE_PERMISSION_ROLEWISE_MENU" Member="MODULE_PERMISSION" ThisKey="MODULE_ID" OtherKey="ID" Type="MODULE_PERMISSION" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MODULE_PERMISSION" Member="MODULE_PERMISSIONs">
+    <Type Name="MODULE_PERMISSION">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MODULE_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USER_GROUP_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="MODULE_PERMISSION_ROLEWISE_MENU" Member="ROLEWISE_MENUs" ThisKey="ID" OtherKey="MODULE_ID" Type="ROLEWISE_MENU" />
+      <Association Name="USER_GROUP_MODULE_PERMISSION" Member="USER_GROUP" ThisKey="USER_GROUP_ID" OtherKey="GROUP_ID" Type="USER_GROUP" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+</Database>

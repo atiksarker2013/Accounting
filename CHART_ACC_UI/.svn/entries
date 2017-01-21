@@ -1,0 +1,109 @@
+8
+
+dir
+951
+svn://madcow/accountsoft/trunk/CHART_ACC/CHART_ACC_UI
+svn://madcow/accountsoft
+
+
+
+2012-06-21T03:35:15.937500Z
+951
+amin
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+4aa2f02b-a843-444f-a285-3b7bbffcebcc
+
+App.xaml
+file
+
+
+
+
+2012-05-21T10:03:09.252429Z
+5ac23a3b17dace473b9cb39150a198d2
+2012-02-01T12:01:40.546875Z
+391
+refat
+
+CHART_ACC_UI.csproj.user
+file
+
+
+
+
+2012-05-21T10:03:09.252429Z
+5c614b40773f83b63a569fbb60a7a265
+2012-05-08T10:34:36.734375Z
+749
+refat
+
+CHART_ACC_UI.csproj
+file
+954
+
+
+
+2012-06-18T06:21:07.749783Z
+f11361cc900347e0beed126b0dd5984b
+2012-07-17T07:03:27.609375Z
+954
+amin
+
+App.xaml.cs
+file
+
+
+
+
+2012-05-21T10:03:09.268029Z
+724602f6c22ef6dc705a694cd6545c97
+2011-12-11T11:19:03.968750Z
+1
+zakir
+
+app.config
+file
+
+
+
+
+2012-05-30T03:26:42.154988Z
+7f8f1fcdc06fdbf135e5ec66d5ae9db4
+2012-05-29T05:35:58.406250Z
+890
+refat
+
+Images
+dir
+
+bin
+dir
+
+Resources
+dir
+
+Validation
+dir
+
+obj
+dir
+
+Properties
+dir
+
+UI
+dir
+

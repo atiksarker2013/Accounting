@@ -1,0 +1,128 @@
+8
+
+dir
+951
+svn://madcow/accountsoft/trunk/CHART_ACC/SPIDER_SECURITY
+svn://madcow/accountsoft
+
+
+
+2012-06-10T09:13:13.937500Z
+927
+amin
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+4aa2f02b-a843-444f-a285-3b7bbffcebcc
+
+App.xaml
+file
+
+
+
+
+2012-05-30T03:26:46.741396Z
+299d9eaa5805c25eaaebed672a2cb2ea
+2012-05-29T05:35:58.406250Z
+890
+refat
+
+app.config
+file
+
+
+
+
+2012-06-11T13:54:58.596316Z
+48de6605832e323538d3447ee50560e4
+2012-06-10T09:13:13.937500Z
+927
+amin
+
+App.xaml.cs
+file
+
+
+
+
+2012-05-30T03:26:46.741396Z
+cb2a81d75d08e9855978411197335232
+2012-05-29T05:35:58.406250Z
+890
+refat
+
+Logo-jpg.ico
+file
+
+
+
+
+2012-06-03T11:20:21.033696Z
+713e71e3771f2dc8127bb53ab8c6a9c1
+2012-06-03T11:26:14.187500Z
+923
+amin
+has-props
+
+SPIDER_SECURITY.csproj.user
+file
+
+
+
+
+2012-05-30T03:26:46.756996Z
+5a7a271935ce553a5fe1d6e168ff7f69
+2012-05-29T05:35:58.406250Z
+890
+refat
+
+Properties
+dir
+
+DAL
+dir
+
+Images
+dir
+
+bin
+dir
+
+BLL
+dir
+
+obj
+dir
+
+Resources
+dir
+
+SPIDER_SECURITY.csproj
+file
+
+
+
+
+2012-06-13T10:16:19.273320Z
+e3d4b05bd30cd492f27c3a47c54f439b
+2012-06-03T11:25:34.171875Z
+922
+amin
+
+Entity
+dir
+
+UI
+dir
+

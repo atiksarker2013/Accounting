@@ -1,0 +1,18 @@
+﻿<Window x:Class="CHART_ACC_UI.UI.DepriciationCalculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Depreciation Calculator" Height="300" Width="514" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Background="{StaticResource GrayWhite}" KeyUp="Window_KeyUp" Closing="Window_Closing" ShowInTaskbar="False">
+    <Grid>
+        <ListView Height="180" HorizontalAlignment="Left" Margin="44,21,0,0" Name="lvDepriciationCalculator" VerticalAlignment="Top" Width="400" ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Account Name"  Width="200" DisplayMemberBinding="{Binding AccountName}"></GridViewColumn>
+                    <GridViewColumn Header="Original Cost"  Width="120" DisplayMemberBinding="{Binding Original_Cost}"></GridViewColumn>
+                    <GridViewColumn Header="Rate"  Width="70" DisplayMemberBinding="{Binding Dep_Percentage}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Calculate" Height="22" HorizontalAlignment="Left" Margin="254,218,0,0" Name="btnSave" VerticalAlignment="Top" Width="86" Click="btnSave_Click" />
+        <Button Content="Close" Height="22" HorizontalAlignment="Left" Margin="358,217,0,0" Name="btnClose" VerticalAlignment="Top" Width="86" Click="btnClose_Click" />
+    </Grid>
+</Window>

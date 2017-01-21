@@ -1,0 +1,91 @@
+8
+
+dir
+951
+svn://madcow/accountsoft/trunk/CHART_ACC/CHART_ACC_REPORT
+svn://madcow/accountsoft
+
+
+
+2012-06-18T05:23:02.109375Z
+939
+amin
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+4aa2f02b-a843-444f-a285-3b7bbffcebcc
+
+DAL
+dir
+
+CHART_ACC_REPORT.csproj
+file
+958
+
+
+
+2012-06-11T14:48:07.248378Z
+80090a6b4d61f97614815f71848a156e
+2012-07-17T07:05:39.062500Z
+958
+amin
+
+UTILITY
+dir
+
+app.config
+file
+
+
+
+
+2012-05-21T10:02:56.351207Z
+5b8a1bece28467e770084f9239ac6cb0
+2012-05-08T10:32:14.515625Z
+748
+refat
+
+RPT
+dir
+
+bin
+dir
+
+BLL
+dir
+
+obj
+dir
+
+ENTITY
+dir
+
+Properties
+dir
+
+UI
+dir
+
+CHART_ACC_REPORT.csproj.user
+file
+
+
+
+
+2012-05-30T12:03:03.421490Z
+1bac23dd68ced0d3d03fc8aea6cbfd69
+2012-05-30T09:57:29.015625Z
+900
+refat
+

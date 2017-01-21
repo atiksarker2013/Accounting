@@ -1,0 +1,22 @@
+﻿<Window x:Class="CHART_ACC_REPORT.UI.Receive_Payment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Receive and Payment" Height="243" Width="481" WindowStartupLocation="CenterScreen" KeyUp="Window_KeyUp" Background="{StaticResource GrayWhite}" ResizeMode="CanMinimize" ShowInTaskbar="False" Closing="Window_Closing">
+    <Grid>
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="132,64,0,0" Name="dtpFrom" TabIndex="0" VerticalAlignment="Top" Width="110" />
+        <Label Content="Date From:" Height="25" HorizontalAlignment="Left" Margin="55,64,0,0" Name="label1" VerticalAlignment="Top" Width="68" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="276,64,0,0" Name="dtpTo" TabIndex="1" VerticalAlignment="Top" Width="110" />
+        <Label Content="To:" Height="25" HorizontalAlignment="Left" Margin="246,64,0,0" Name="label2" VerticalAlignment="Top" Width="25" />
+        <Button Content="Preview" Height="23" HorizontalAlignment="Left" Margin="132,134,0,0" Name="btnPreview" VerticalAlignment="Top" Width="75" Click="btnPreview_Click" />
+        <Button Content="Reset" Height="23" HorizontalAlignment="Left" Margin="223,133,0,0" Name="btnReset" VerticalAlignment="Top" Width="75" Click="btnReset_Click" />
+        <Button Content="Close" Height="23" HorizontalAlignment="Left" Margin="311,134,0,0" Name="btnCancel" VerticalAlignment="Top" Width="75" Click="btnCancel_Click" />
+        <Label Content="Fiscal Period" Height="23" HorizontalAlignment="Left" Margin="55,12,0,0" Name="label5" VerticalAlignment="Top" Width="75" />
+        <TextBox Height="25" HorizontalAlignment="Left" IsEnabled="False" Margin="130,11,0,0" Name="txtFiscalStartDate" VerticalAlignment="Top" Width="115" IsReadOnly="True" Foreground="Green" />
+        <Label Content="to" Height="27" HorizontalAlignment="Left" Margin="243,10,0,0" Name="label6" VerticalAlignment="Top" Width="25" />
+        <TextBox Height="25" HorizontalAlignment="Left" IsEnabled="False" Margin="266,11,0,0" Name="txtFiscalEndDate" VerticalAlignment="Top" Width="117" IsReadOnly="True" Foreground="Green" />
+        <RadioButton Content="All" Height="16" HorizontalAlignment="Left" Margin="132,106,0,0" Name="rdbAll" VerticalAlignment="Top" Checked="rdbAll_Checked" />
+        <RadioButton Content="Select" Height="16" HorizontalAlignment="Left" Margin="184,106,0,0" Name="rdbSelect" VerticalAlignment="Top" Click="rdbSelect_Click"/>
+        <ComboBox Height="23" DisplayMemberPath="AccTypeName" HorizontalAlignment="Left" Margin="243,103,0,0" Name="cmbAccType" VerticalAlignment="Top" Width="143" />
+        <Label Content="Account" Height="25" Margin="55,103,0,0" Name="label3" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" />
+    </Grid>
+</Window>

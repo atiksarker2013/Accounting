@@ -1,0 +1,25 @@
+﻿<Window x:Class="CHART_ACC_UI.UI.CreateAcount"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Create Account Head" Height="284" Width="441" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" KeyUp="Window_KeyUp" Background="{StaticResource GrayWhite}" ShowInTaskbar="False" Closing="Window_Closing">
+    <Grid>
+        <Label Content="Account Head Name" Height="27" HorizontalAlignment="Left" Margin="25,22,0,0" Name="label1" VerticalAlignment="Top" Width="123" />
+        <TextBox Height="26" HorizontalAlignment="Left" Margin="157,24,0,0" Name="txtAccountTypeName" VerticalAlignment="Top" Width="199" Style="{StaticResource GraywithBlueBorderTextBox}" />
+        <ListView Height="132" HorizontalAlignment="Left" ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" Margin="126,101,0,0" Name="lvAccountTypeName" VerticalAlignment="Top" Width="250">
+            <ListView.ContextMenu>
+                <ContextMenu Name="vatContextMenu" StaysOpen="True">
+                    <MenuItem Header="Edit"   Name="editData" Click="editData_Click"></MenuItem>
+                    <MenuItem Header="Delete" Name="deleteData" Click="deleteData_Click"></MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="90" DisplayMemberBinding="{Binding AccTypeId}"></GridViewColumn>
+                    <GridViewColumn Header="ACCOUNT HEAD" Width="150" DisplayMemberBinding="{Binding AccTypeName}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Save" Height="24" HorizontalAlignment="Left" Margin="158,64,0,0" Name="btnSave" VerticalAlignment="Top" Width="91" Click="btnSave_Click" />
+        <Button Content="Reset" Height="24" HorizontalAlignment="Left" Margin="265,64,0,0" Name="btnReset" VerticalAlignment="Top" Width="91" Click="btnReset_Click" />
+    </Grid>
+</Window>
